@@ -1,0 +1,18 @@
+﻿"CertInfoImportFileVersion","Acceptoutputno","FormType","ElectCertMgNo","CarId","ElectCertPublishdateE","ElectCertPublishdateY","ElectCertPublishdateM","ElectCertPublishdateD","GrantdateE","GrantdateY","GrantdateM","GrantdateD","TranspotationBureauchiefName","EntryNoCarNo","ReggrantdateE","ReggrantdateY","ReggrantdateM","ReggrantdateD","FirstregistdateE","FirstregistdateY","FirstregistdateM","CarName","CarNameCode","CarNo","Model","EngineModel","OwnernameLowLevelChar","OwnernameHighLevelChar","OwnerAddressChar","OwnerAddressNumValue","OwnerAddressCode","UsernameLowLevelChar","UsernameHighLevelChar","UserAddressChar","UserAddressNumValue","UserAddressCode","UseheadqrterChar","UseheadqrterNumValue","UseheadqrterCode","CarKind","Use","PrivateBusiness","CarShape","CarShapeCode","NoteCap","Cap","NoteMaxloadage","Maxloadage","NoteCarWgt","CarWgt","NoteCarTotalWgt","CarTotalWgt","NoteLength","Length","NoteWidth","Width","NoteHeight","Height","FfAxWgt","FrAxWgt","RfAxWgt","RrAxWgt","Displacement","FuelClass","ModelSpecifyNo","ClassifyAroundNo","ValidPeriodExpirdateE","ValidPeriodExpirdateY","ValidPeriodExpirdateM","ValidPeriodExpirdateD","NoteInfo","TwodimensionCodeInfoEntryNoCarNo","TwodimensionCodeInfoCarNo","TwodimensionCodeInfoValidPeriodExpirdate","TwodimensionCodeInfoModel","TwodimensionCodeInfoModelSpecifyNoClassifyAroundNo","TwodimensionCodeInfoCharInfo","TwodimensionCodeInfoEngineModel","TwodimensionCodeInfoCarNoStampPlace","TwodimensionCodeInfoFirstregistdate","TwodimensionCodeInfoFfAxWgt","TwodimensionCodeInfoFrAxWgt","TwodimensionCodeInfoRfAxWgt","TwodimensionCodeInfoRrAxWgt","TwodimensionCodeInfoNoiseReg","TwodimensionCodeInfoNearNoiseReg","TwodimensionCodeInfoDriveMethod","TwodimensionCodeInfoOpacimeterMeasCar","TwodimensionCodeInfoNoxPmMeasMode","TwodimensionCodeInfoNoxValue","TwodimensionCodeInfoPmValue","TwodimensionCodeInfoSafeStdDate","TwodimensionCodeInfoFuelClassCode","RegistCarLightCar"
+"1.0","00552","Ａ","461230355343","T9468TL0885827","令和"," 5"," 7"," 3","令和"," 5"," 7"," 3","群馬運輸支局長","高崎　８３０　あ　１０３７","令和"," 4"," 7","27","平成","30"," 7","日野","[262]","ＦＳ１ＡＨ－１００２９１","２ＰＧ－ＦＳ１ＡＨＪ","Ａ０９Ｃ","株式会社　関東隆商運輸","株式会社　関東隆商運輸","群馬県高崎市島野町","１００４－２","[10501 1314]","＊＊＊","＊＊＊","＊＊＊","","","＊＊＊","","","普　通","特種","事業用","冷蔵冷凍車","[632]","","2","","13100","","11740","","24950","","1194","","249","","373","5000","-","3430","3310","8.86","軽油","","","令和"," 6"," 7"," 2","［群馬］，継続検査，［ＯＳＳ］
+自動車重量税額　￥６２，５００　本則税率適用
+［２９年度税制］平成３０年７月３日　新規登録　５０％減税措置済み
+平成２７年度燃費基準５％向上達成車
+使用車種規制（ＮＯｘ・ＰＭ）適合。この自動車の使用の本拠はＮＯｘ・ＰＭ対策地域外です。
+速度抑制装置付
+［走行距離計表示値］５８９，９００ｋｍ（令和５年７月３日）
+［旧走行距離計表示値］４１２，７００ｋｍ（令和４年７月１日）
+平成２８年騒音規制車，騒音カテゴリ　Ｎ３Ｃ１Ａ
+近接排気騒音値　８６ｄＢ，測定回転数　１，２７５ｒｐｍ
+（旧基準適用時測定回転数　１，２７５ｒｐｍ）
+マフラー加速騒音規制適用車
+［受検種別］指定整備車
+［検査時の点検整備実施状況］点検整備記録簿記載あり
+［受検形態］指定整備工場
+［整備工場コード］４６－０００１１
+［その他検査事項］（６１）マフラー加速騒音規制適用車　（９２０）燃料タンク　１個　４００Ｌ","高崎　　８３０あ１０３７","FS1AH-100291","240702","2PG-FS1AHJ","","B","A09C","-  ","1807","0500","-   ","0343","0331","28","-  ","-","0","-","-   ","-    ","999999","02","01"
