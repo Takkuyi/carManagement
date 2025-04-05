@@ -1,10 +1,10 @@
 from flask import Blueprint, jsonify
-from app.vehicle.models import Vehicle  # モデルのパスに合わせて調整してください
+from app.vehicle.models import ICVehicleRaw  # モデルのパスに合わせて調整してください
 from app.extensions import db
 
-bp_vehicle = Blueprint('vehicle', __name__, url_prefix='/api/vehicles')
+vehicle_bp = Blueprint('vehicle', __name__, url_prefix='/api/vehicles')
 
-@bp_vehicle.route('/', methods=['GET'])
+@vehicle_bp.route('/', methods=['GET'])
 def list_vehicles():
     vehicles = Vehicle.query.order_by(Vehicle.id).all()
     result = [

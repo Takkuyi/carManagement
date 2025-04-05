@@ -1,73 +1,101 @@
-from app.extensions import db
+from app.extensions import db  
+from sqlalchemy import Column, String, Integer, Float
 
-class Vehicle(db.Model):
-    __tablename__ = 'vehicles'
+class ICVehicleRaw(db.Model):
+    __tablename__ = "vehicles"
 
-    id = db.Column(db.Integer, primary_key=True)
-    vehicle_number = db.Column(db.String(64), unique=True, nullable=False)  # 車両番号
-    registration_number = db.Column(db.String(64))  # 登録番号
-    chassis_number = db.Column(db.String(64))       # 車台番号
-    vehicle_type = db.Column(db.String(64))         # 車両の種類
-    car_type = db.Column(db.String(64))             # 自動車の種別
-    usage = db.Column(db.String(64))                # 用途
-    ownership = db.Column(db.String(64))            # 自家用事業用の別
-    ownership_type = db.Column(db.String(64))       # 所有形態
-    body_style = db.Column(db.String(64))           # 車体の形状
-    car_name = db.Column(db.String(64))             # 車名
-    model = db.Column(db.String(64))                # 型式
-    engine_model = db.Column(db.String(64))         # 原動機の型式
-    length = db.Column(db.Float)                    # 長さ
-    width = db.Column(db.Float)                     # 幅
-    height = db.Column(db.Float)                    # 高さ
-    vehicle_weight = db.Column(db.Float)            # 車両重量
-    gross_weight = db.Column(db.Float)              # 車両総重量
-    max_load_capacity = db.Column(db.Float)         # 最大積載量
-    max_load = db.Column(db.Float)                  # 最大積載量（別名が存在）
-    seating_capacity = db.Column(db.Integer)        # 定員
-    classification = db.Column(db.String(64))       # 車両区分（軽・普通・大型など）
-    name = db.Column(db.String(64))                 # 所有者の氏名（または名称）
-    gross_vehicle_weight = db.Column(db.Float)      # 車両総重量（電子車検証用）
-    capacity = db.Column(db.Float)                  # 容量（電子車検証より）
-
-    # ETC利用情報とのリレーションは外部キー制約なしで対応予定（必要に応じてJOINのみ）
-
-    @staticmethod
-    def from_csv_row(row):
-        def to_float(val):
-            try:
-                return float(val)
-            except (ValueError, TypeError):
-                return None
-
-        def to_int(val):
-            try:
-                return int(val)
-            except (ValueError, TypeError):
-                return None
-
-        return Vehicle(
-            vehicle_number=row.get("CarId"),
-            registration_number=row.get("RegistrationNumber"),
-            chassis_number=row.get("VehicleId"),
-            vehicle_type=row.get("VehicleType"),
-            car_type=row.get("Use"),
-            usage=row.get("Usage"),
-            ownership=row.get("OwnKind"),
-            ownership_type=row.get("UseType"),
-            body_style=row.get("BodyType"),
-            car_name=row.get("CarName"),
-            model=row.get("Model"),
-            engine_model=row.get("EngineModel"),
-            length=to_float(row.get("Length")),
-            width=to_float(row.get("Width")),
-            height=to_float(row.get("Height")),
-            vehicle_weight=to_float(row.get("VehicleWeight")),
-            gross_weight=to_float(row.get("TotalWeight")),
-            max_load_capacity=to_float(row.get("MaxLoadCap")),
-            max_load=to_float(row.get("MaxLoad")),
-            seating_capacity=to_int(row.get("Capacity")),
-            classification=row.get("CarKind"),
-            name=row.get("UserName"),
-            gross_vehicle_weight=to_float(row.get("GVWR")),
-            capacity=to_float(row.get("Displacement"))
-        )
+    CertInfoImportFileVersion = Column(Float)
+    Acceptoutputno = Column(Integer)
+    FormType = Column(String(255))
+    ElectCertMgNo = Column(Integer)
+    CarId = Column(String(255), primary_key=True)
+    ElectCertPublishdateE = Column(String(255))
+    ElectCertPublishdateY = Column(Integer)
+    ElectCertPublishdateM = Column(Integer)
+    ElectCertPublishdateD = Column(Integer)
+    GrantdateE = Column(String(255))
+    GrantdateY = Column(Integer)
+    GrantdateM = Column(Integer)
+    GrantdateD = Column(Integer)
+    TranspotationBureauchiefName = Column(String(255))
+    EntryNoCarNo = Column(String(255))
+    ReggrantdateE = Column(String(255))
+    ReggrantdateY = Column(Integer)
+    ReggrantdateM = Column(Integer)
+    ReggrantdateD = Column(Integer)
+    FirstregistdateE = Column(String(255))
+    FirstregistdateY = Column(Integer)
+    FirstregistdateM = Column(Integer)
+    CarName = Column(String(255))
+    CarNameCode = Column(String(255))
+    CarNo = Column(String(255))
+    Model = Column(String(255))
+    EngineModel = Column(String(255))
+    OwnernameLowLevelChar = Column(String(255))
+    OwnernameHighLevelChar = Column(String(255))
+    OwnerAddressChar = Column(String(255))
+    OwnerAddressNumValue = Column(String(255))
+    OwnerAddressCode = Column(String(255))
+    UsernameLowLevelChar = Column(String(255))
+    UsernameHighLevelChar = Column(String(255))
+    UserAddressChar = Column(String(255))
+    UserAddressNumValue = Column(Float)
+    UserAddressCode = Column(Float)
+    UseheadqrterChar = Column(String(255))
+    UseheadqrterNumValue = Column(Float)
+    UseheadqrterCode = Column(Float)
+    CarKind = Column(String(255))
+    Use = Column(String(255))
+    PrivateBusiness = Column(String(255))
+    CarShape = Column(String(255))
+    CarShapeCode = Column(String(255))
+    NoteCap = Column(Float)
+    Cap = Column(Integer)
+    NoteMaxloadage = Column(Float)
+    Maxloadage = Column(Integer)
+    NoteCarWgt = Column(Float)
+    CarWgt = Column(Integer)
+    NoteCarTotalWgt = Column(Float)
+    CarTotalWgt = Column(Integer)
+    NoteLength = Column(Float)
+    Length = Column(Integer)
+    NoteWidth = Column(Float)
+    Width = Column(Integer)
+    NoteHeight = Column(Float)
+    Height = Column(Integer)
+    FfAxWgt = Column(Integer)
+    FrAxWgt = Column(String(255))
+    RfAxWgt = Column(Integer)
+    RrAxWgt = Column(Integer)
+    Displacement = Column(Float)
+    FuelClass = Column(String(255))
+    ModelSpecifyNo = Column(Float)
+    ClassifyAroundNo = Column(Float)
+    ValidPeriodExpirdateE = Column(String(255))
+    ValidPeriodExpirdateY = Column(Integer)
+    ValidPeriodExpirdateM = Column(Integer)
+    ValidPeriodExpirdateD = Column(Integer)
+    NoteInfo = Column(String(255))
+    TwodimensionCodeInfoEntryNoCarNo = Column(String(255))
+    TwodimensionCodeInfoCarNo = Column(String(255))
+    TwodimensionCodeInfoValidPeriodExpirdate = Column(Integer)
+    TwodimensionCodeInfoModel = Column(String(255))
+    TwodimensionCodeInfoModelSpecifyNoClassifyAroundNo = Column(Float)
+    TwodimensionCodeInfoCharInfo = Column(String(255))
+    TwodimensionCodeInfoEngineModel = Column(String(255))
+    TwodimensionCodeInfoCarNoStampPlace = Column(String(255))
+    TwodimensionCodeInfoFirstregistdate = Column(Integer)
+    TwodimensionCodeInfoFfAxWgt = Column(Integer)
+    TwodimensionCodeInfoFrAxWgt = Column(String(255))
+    TwodimensionCodeInfoRfAxWgt = Column(Integer)
+    TwodimensionCodeInfoRrAxWgt = Column(Integer)
+    TwodimensionCodeInfoNoiseReg = Column(Integer)
+    TwodimensionCodeInfoNearNoiseReg = Column(String(255))
+    TwodimensionCodeInfoDriveMethod = Column(String(255))
+    TwodimensionCodeInfoOpacimeterMeasCar = Column(Integer)
+    TwodimensionCodeInfoNoxPmMeasMode = Column(String(255))
+    TwodimensionCodeInfoNoxValue = Column(String(255))
+    TwodimensionCodeInfoPmValue = Column(String(255))
+    TwodimensionCodeInfoSafeStdDate = Column(Integer)
+    TwodimensionCodeInfoFuelClassCode = Column(Integer)
+    RegistCarLightCar = Column(Integer)

@@ -1,14 +1,15 @@
 import os
 from flask import Flask
-from flask_migrate import Migrate  # ← これが必要！
-from .extensions import db, cors, login_manager
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate 
+from .extensions import db, cors, login_manager, migrate
 from .config import DevelopmentConfig, ProductionConfig
-from .vehicle.models import Vehicle
-from app.vehicle.routes import bp_vehicle
+#from .vehicle.models import Vehicle
+from app.vehicle.routes import vehicle_bp
 from app.Hluggage.routes import routes_bp as hluggage_bp
-from app.Hluggage.models import CrateWeights, CourseGroups, Courses, Clients, LoadingData, LoadingMethods
 from app.Hluggage import models as hluggage_models
 
+#db = SQLAlchemy()
 migrate = Migrate()  # ← Flask-Migrate のインスタンス作成
 
 def create_app():
@@ -26,21 +27,24 @@ def create_app():
 
     # Flask拡張の初期化
     db.init_app(app)
+    migrate.init_app(app, db)  
     cors.init_app(app)
     login_manager.init_app(app)
-    migrate.init_app(app, db)  
-    app.register_blueprint(bp_vehicle)
+
+    # Modelインポート
+    from .auth.models import User
+    from .etc.models import ETCUsage
+    from .vehicle.models import ICVehicleRaw
+    from .Hluggage.models import CrateWeights, CourseGroups, Courses, Clients, LoadingData, LoadingMethods
 
     # Blueprint登録
     from .auth.routes import login_bp
     from .etc.routes import routes_bp
+    from .vehicle.routes import vehicle_bp
+  
     app.register_blueprint(login_bp)
     app.register_blueprint(routes_bp)
+    app.register_blueprint(vehicle_bp)
     app.register_blueprint(hluggage_bp, url_prefix="/hluggage")
 
-    #with app.app_context():
-    #    db.create_all()
-
     return app
-
-import app.Hluggage.models

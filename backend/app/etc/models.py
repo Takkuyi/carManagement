@@ -1,5 +1,4 @@
 from app.extensions import db
-from app.vehicle.models import Vehicle
 
 class ETCUsage(db.Model):
     __tablename__ = "etc_usage"
